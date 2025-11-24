@@ -9,7 +9,7 @@ readme = "README.md"
 requires-python = ">=3.11,<3.12"
 dependencies = [
     "ampel-interface == 0.10.5a4",
-    "timewise == 1.0.0a6"
+    "timewise[ampel] == 1.0.0a6"
 ]
 
 [tool.poetry]
