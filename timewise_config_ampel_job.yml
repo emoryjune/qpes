@@ -28,7 +28,7 @@ task:
               input_mongo_db_name: qpes_input
               plot: false
           unit: TiMongoMuxer
-    iter_max: 1000000
+    iter_max: 1000
     shaper: TiDataPointShaper
     supplier:
       config:
@@ -48,6 +48,6 @@ task:
   unit: AlertConsumer
 - config:
     log_profile: default
-  multiplier: 5
+  multiplier: 1
   title: t2
   unit: T2Worker
