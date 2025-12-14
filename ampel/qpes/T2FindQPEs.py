@@ -19,5 +19,6 @@ class T2FindQPEs(AbsTiedLightCurveT2Unit):
     def process(self, light_curve: LightCurve, t2_views: Sequence[T2DocView]) -> UBson | UnitResult:
         records = [r.body[0] for r in t2_views][0]
         stacked_lightcurve = pd.DataFrame.from_records(records)
-        print(stacked_lightcurve)
-
+        diff_series = stacked_lightcurve['w1meanflux'].diff() #difference between consecutive rows
+        stacked_lightcurve['three_consecutive_increase_diff'] = (diff_series > 0) & (diff_series.shift(1) > 0) #check if bigger than previous which is bigger than one before that
+        #print(stacked_lightcurve[['w1meanflux', 'three_consecutive_increase_diff']])
